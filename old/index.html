@@ -1,0 +1,484 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+<head>
+	<title>Designing and Using Goal-Conditioned Tools</title>
+	<meta property="og:image" content="teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="Designing and Using Goal-Conditioned Tools" />
+	<meta property="og:description" content="Paper description." />
+
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script> 
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:36px">Designing and Using Goal-Conditioned Tools</span>
+		<table align=center width=600px>
+			<table align=center width=600px>
+				<tr>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://tool-design-iclr-2023.github.io/">Anonymous</a></span>
+						</center>
+					</td>
+					<!-- <td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">Anonymous</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">Anonymous</a></span>
+						</center>
+					</td> -->
+				</tr>
+			</table>
+			<table align=center width=250px>
+				<tr>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:24px"><a href=''>[Paper]</a></span>
+						</center>
+					</td>
+					<!-- <td align=center width=120px>
+						<center>
+							<span style="font-size:24px"><a href='https://github.com/richzhang/webpage-template'>[GitHub]</a></span><br>
+						</center>
+					</td> -->
+				</tr>
+			</table>
+		</table>
+	</center>
+
+	<center>
+		<table align=center width=850px>
+			<tr>
+				<td width=260px>
+					<center>
+						<img class="round" style="width:500px" src="./resources/teaser.png"/>
+					</center>
+				</td>
+			</tr>
+		</table>
+		<!-- <table align=center width=850px>
+			<tr>
+				<td>
+					This was a template originally made for <a href="http://richzhang.github.io/colorization/">Colorful Image Colorization</a>. The code can be found in this <a href="https://github.com/richzhang/webpage-template">repository</a>.
+				</td>
+			</tr>
+		</table> -->
+	</center>
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td style="font-size:20px;">
+				When limited by their own morphologies, humans and some species of animals have the remarkable ability to use objects from the environment towards accomplishing otherwise impossible tasks. Embodied agents might similarly unlock a range of additional capabilities through tool use. Recent techniques for jointly optimizing morphology and control via deep learning output effective solutions for tasks such as designing locomotion agents. But while designing a single-goal morphology makes sense for locomotion, manipulation involves a wide variety of strategies depending on the task goals at hand. An agent must be capable of rapidly prototyping specialized tools for different goals. 
+				<br>
+				<br>
+				Therefore, we propose the idea of learning a designer policy, rather than a single design. A designer policy is conditioned on task goals, and outputs a design for a tool that helps solve the task. A design-agnostic controller policy can then perform manipulation using these tools. In this work, we introduce a reinforcement learning framework for learning these policies. Through simulated manipulation tasks, we show that this framework is more sample efficient than black-box optimization methods in multi-goal settings. It can also perform zero-shot interpolation or finetuning to tackle previously unseen goals. Finally, we demonstrate that our framework allows tradeoffs between the complexity of design and control policies when required by practical constraints.
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<!-- <hr>
+	<center><h1>Talk</h1></center>
+	<p align="center">
+		<iframe width="660" height="395" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+	</p>
+
+	<table align=center width=800px>
+		<br>
+		<tr>
+			<center>
+				<span style="font-size:28px"><a href=''>[Slides]</a>
+				</span>
+			</center>
+		</tr>
+	</table>
+	<hr> -->
+
+	<hr>
+
+	<center><h1>Framework</h1></center>
+
+	<table align=center width=420px>
+		<center>
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=600>
+		<tr>
+			<td align=center width=600>
+				<center>
+					<td><img class="round" style="width:750" src="./resources/method.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					Solving a task using learned designer and controller policies. During the design phase, the designer policy outputs the parameters for a tool that will help solve the given task. In the control phase, the controller policy then outputs motor commands given the tool structure and task specification.
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<br>
+	<hr>
+
+	<center><h1>Tasks</h1></center>
+
+	<table align=center width=420px>
+		<center>
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=600>
+		<tr>
+			<td align=center width=200>
+				<center>
+					<td><img class="round" style="width:200" src="./resources/task_push.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200>
+				<center>
+					<td><img class="round" style="width:200" src="./resources/task_ball_catch.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200>
+				<center>
+					<td><img class="round" style="width:200" src="./resources/task_scoop_1.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200>
+				<center>
+					<td><img class="round" style="width:200" src="./resources/task_scoop_many.gif"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					Visualizations of the 2D simulated manipulation environments for testing our framework, including a Pushing task (left), a Ball Catching task (middle), and a Scooping task (right) with two variants: 1. scoop exactly one ball 2. scoop as many balls as possible.
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<br>
+	<hr>
+
+	<center><h1>Sample Efficiency</h1></center>
+
+	<table align=center width=420px>
+		<center>
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=840>
+		<tr>
+			<td align=center width=280>
+				<center>
+					<td><img class="round" style="width:280" src="./resources/exp_1_hook_push_2d_control.png"/></td>
+				</center>
+			</td>
+			<td align=center width=280>
+				<center>
+					<td><img class="round" style="width:280" src="./resources/exp_1_ball_catch_1d_control_v2.png"/></td>
+				</center>
+			</td>
+			<td align=center width=280>
+				<center>
+					<td><img class="round" style="width:280" src="./resources/exp_1_box2d_chain_scoop.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					Learning curves for our framework and black-box optimizer baselines on multi-goal and single-goal settings. As baselines, we present the single-goal performance of CEM, CMA-ES, and PGPE, as well as the multi-goal training performance of PGPE. We can see that across all studied tasks, our framework achieves substantially improved performance, as well as competitive sample efficiency. Shaded areas indicate standard error across multiple seeds (5 seeds on multi-goal methods and 10 seeds on single-goal methods).
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<br>
+	<hr>
+
+	<center><h1>Diverse Goal-Conditioned Design and Control</h1></center>
+
+	<table align=center width=420px>
+		<center>
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=840>
+		<tr>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_8.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_9.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_10.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_11.gif"/></td>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_4.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_5.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_6.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_7.gif"/></td>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_0.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_1.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_2.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=210>
+				<center>
+					<td><img class="round" style="width:210" src="./resources/design_3.gif"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					TODO
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<!-- <br>
+	<hr>
+	<table align=center width=450px>
+		<center><h1>Paper and Supplementary Material</h1></center>
+		<tr>
+			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
+			<td><span style="font-size:14pt">F. Author, S. Author, T. Author.<br>
+				<b>Creative and Descriptive Paper Title.</b><br>
+				In Conference, 20XX.<br>
+				(hosted on <a href="">ArXiv</a>)<br>
+				(<a href="./resources/camera-ready.pdf">camera ready</a>)<br>
+				<span style="font-size:4pt"><a href=""><br></a>
+				</span>
+			</td>
+		</tr>
+	</table> -->
+	<!-- <br>
+
+	<table align=center width=600px>
+		<tr>
+			<td><span style="font-size:14pt"><center>
+				<a href="./resources/bibtex.txt">[Bibtex]</a>
+			</center></td>
+		</tr>
+	</table> -->
+
+	<hr>
+	<br>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=400px>
+				<left>
+					<center><h1>Website Template Acknowledgements</h1></center>
+					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+
+<br>
+</body>
+</html>
+
